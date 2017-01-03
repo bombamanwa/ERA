@@ -20,6 +20,11 @@
 # ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 # OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ###############################################################################
+#
+# Extended for Tenerifis
+#
+#
+###############################################################################
 
 from time import gmtime
 import time
@@ -147,9 +152,9 @@ class era(wx.Frame):
 		era.check_interval.SetSelection(3)
 
 		# Define regions we have systems for in a list
-		region_list = [ 'dek', 'brn', 'ftn', 'fade', 'tnl', 'tri', 'vnl', 'vale', 'cr' ]
+		region_list = ['Phoenix']
 		# Create text "Region" before the dropdown box
-		wx.StaticText(self.panel, -1, 'Region', (225,15))
+		wx.StaticText(self.panel, -1, 'Intel', (225,15))
 		# Create the dropdown box
 		era.region_select = wx.ComboBox(self.panel, -1, pos=(280,10), size=(75,25), choices = region_list, style=wx.CB_DROPDOWN)
 		#  Use DEK as a default selection
@@ -289,7 +294,7 @@ class StartHOSTILE(Thread):
 		system = era.system_select.GetValue()
 
 		# select identified logs and sort by date
-		hostile_tmp = sorted([ f for f in os.listdir(hostile_logdir) if f.startswith("%s.imperium" % str(region))])
+		hostile_tmp = sorted([ f for f in os.listdir(hostile_logdir) if f.startswith("%s.Intel" % str(region))])
 		# testing line so we shit up Corp chat not intel chans
 		# hostile_tmp = sorted([ f for f in os.listdir(hostile_logdir) if f.startswith('Corp')])
 
